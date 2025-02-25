@@ -27,8 +27,11 @@ function App() {
         <h1>Che film vuoi guardare oggi?</h1>
         <h3>Seleziona la categoria!</h3>
 
-        <select name="genre">
-          <option value="" disabled selected>Seleziona un'opzione</option>
+        <select className='form-select' 
+        value={search} 
+        onChange={ (e) => setSearch(e.target.value)}
+        >
+          <option value="" disabled>Seleziona un'opzione</option>
           <option value="Fantascienza">Fantascienza</option>
           <option value="Thriller">Thriller</option>
           <option value="Romantico">Romantico</option>
@@ -36,7 +39,7 @@ function App() {
         </select>
 
         <ul className='list-group'>
-          {movie.map(({id,title}) => (
+          {filteredMovies.map(({id,title}) => (
             <li className='list-group-item fs-3' key={id}>
               {title}
             </li>
